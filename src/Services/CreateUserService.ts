@@ -1,5 +1,6 @@
 import prismaClient from "../prisma";
-import {hash} from 'bcryptjs'
+import {hash} from 'bcryptjs';
+import { sign } from "jsonwebtoken";
 
 interface UserRequest {
     name: string,
@@ -36,6 +37,7 @@ class CreateUserService{
                 email: true
             }
         })
+
         return user;
         
     }
